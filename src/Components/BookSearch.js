@@ -25,7 +25,7 @@ class BookSearch extends Component {
 				foundBooks.error ? this.setState({ foundBooks: [] }) : this.setState({ foundBooks: foundBooks })			
 				}) 
 		} else {
-			this.setState({ foundBooks: [] })
+			this.setState({ foundBooks: [] });
 	           }	
 	}
 	
