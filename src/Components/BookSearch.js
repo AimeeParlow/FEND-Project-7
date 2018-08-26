@@ -19,15 +19,14 @@ class BookSearch extends Component {
 	}
 	
 	updatefoundBooks = (query) => {
+					
 		if (query) {
-		BooksAPI.search(query).then((foundBooks) => {
-			if(foundBooks.error) { //if the typing words are not matched any books title/author
-					this.setState({ foundBooks: [] }); 
-			} else {
-				this.setState({ foundBooks: foundBooks })
-			}			
-			}) 
-		} 
+			BooksAPI.search(query).then((foundBooks) => { 
+				foundBooks.error ? this.setState({ foundBooks: [] }) : this.setState({ foundBooks: foundBooks })			
+				}) 
+		} else {
+			this.setState({ foundBooks: [] })
+	           }	
 	}
 	
 	render() {	
