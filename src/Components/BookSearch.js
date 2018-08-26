@@ -8,7 +8,7 @@ import * as BooksAPI from '../BooksAPI';
 class BookSearch extends Component {
 	state = {
 		query: '',
-		foundBooks: [] //empty in the page as default
+		foundBooks: [] //no books appears as default
 	}
 	
 	updateQuery = (query) => {
@@ -21,7 +21,7 @@ class BookSearch extends Component {
 	updatefoundBooks = (query) => {
 		if (query) {
 		BooksAPI.search(query).then((foundBooks) => {
-			if(foundBooks.error) { //if the typing words are not matched any books
+			if(foundBooks.error) { //if the typing words are not matched any books title/author
 					this.setState({ foundBooks: [] }); 
 			} else {
 				this.setState({ foundBooks: foundBooks })
@@ -50,8 +50,8 @@ class BookSearch extends Component {
 					let shelf = "none"
 					this.props.books.map(book => (
 						book.id === foundBook.id ? 
-						shelf = book.shelf : //if found book id is not matched book, shel is none
-						''
+						shelf = book.shelf : //if found book's id is matched book's in the main page, shelf is as it to be 
+						'' // otherwise "none"
 					));
 					
 					return (
@@ -59,8 +59,8 @@ class BookSearch extends Component {
 							<Book
 								book={foundBook}
 								changeShelf={this.props.changeShelf}
-								currentShelf={shelf}
-							/>
+								currentShelf={shelf} 
+							/> //display found books in the search page
 						</li>
 					);					
 				  })

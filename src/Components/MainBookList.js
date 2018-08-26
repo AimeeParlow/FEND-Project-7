@@ -1,4 +1,4 @@
-//to show current book list in the main page
+//to display current book list in the main page
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -20,13 +20,13 @@ class MainBookList extends Component {
                     <ol className="books-grid">
 					{
 						this.props.books
-							.filter(book => book.shelf === 'currentlyReading')//to show only 'Currently Reading' books here 
+							.filter(book => book.shelf === 'currentlyReading')//display only 'Currently Reading' books here 
 							.map(book => (
 								<li key={book.id}>
 									<Book
 										book={book}
 										changeShelf={this.props.changeShelf}
-										currentShelf="currentlyReading"
+										currentShelf="currentlyReading" //set shelf of books in the currentlyReading shelf
 									/>
 								</li>	
 							))
@@ -40,13 +40,13 @@ class MainBookList extends Component {
                     <ol className="books-grid">
 					{
 						this.props.books
-							.filter(book => book.shelf === 'wantToRead')//to show only 'Want to Read' books here
+							.filter(book => book.shelf === 'wantToRead')//display only 'Want to Read' books here
 							.map(book => (
 								<li key={book.id}>
 									<Book
 										book={book}
 										changeShelf={this.props.changeShelf}
-										currentShelf="wantToRead"
+										currentShelf="wantToRead" //set shelf of books in the wantToRead shelf
 									/>
 								</li>	
 							))
@@ -60,13 +60,13 @@ class MainBookList extends Component {
                     <ol className="books-grid">
 					{
 						this.props.books
-							.filter(book => book.shelf === 'read')//to show only 'read' books here
+							.filter(book => book.shelf === 'read')//display only 'read' books here
 							.map(book => (
 								<li key={book.id}>
 									<Book 
 										book={book}
 										changeShelf={this.props.changeShelf}
-										currentShelf="read"
+										currentShelf="read" //set shelf of books in the  read shelf
 									/>
 								</li>	
 							))

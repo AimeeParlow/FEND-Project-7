@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class Book extends Component {
 	render() {
 		let bookThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail :
-		''; //if not found thumnail, display blank
-
+		''; //if thumbnail url is not found, do nothing
+		
 		return(
 			<div className="book">
 				<div className="book-top">

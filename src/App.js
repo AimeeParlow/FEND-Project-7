@@ -5,23 +5,21 @@ import BookSearch from './Components/BookSearch';
 import * as BooksAPI from './BooksAPI';
 import './App.css'
 
-class BooksApp extends React.Component {
+class App extends React.Component {
 	state = {
 		books: []
 	}
-
+	
 	componentDidMount() {
-		BooksAPI.getAll().then((books) => {	//fetch current books 
+		BooksAPI.getAll().then((books) => {	//fetch books into [] 
 			this.setState({books: books})
 		})
 	}
-	// books move to another shelf due to changed state and update
-	changeShelf = (book, shelf) => {
+
+	changeShelf = (book, shelf) => { 	// update new shelf
 		BooksAPI.update(book, shelf);
 		
-		BooksAPI.getAll().then((books) => { //fetch updated books
-			this.setState({ books: books })
-		})
+		this.componentDidMount(); 	// fetch updated books into []
 	}
 			
 	render() {
@@ -46,4 +44,4 @@ class BooksApp extends React.Component {
 		  }
 }
 
-export default BooksApp
+export default App
