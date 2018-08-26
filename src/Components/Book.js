@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class Book extends Component {
 	render() {
 		let bookThumbnail = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail :
-		''; //if thumbnail url is not found, do nothing
+		''; //if thumbnail url is not found, do nothing (display blank)
 		
 		return(
 			<div className="book">

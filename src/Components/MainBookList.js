@@ -26,7 +26,7 @@ class MainBookList extends Component {
 									<Book
 										book={book}
 										changeShelf={this.props.changeShelf}
-										currentShelf="currentlyReading" //set shelf of books in the currentlyReading shelf
+										currentShelf="currentlyReading" //set book's shelf as 'Currently Reading'
 									/>
 								</li>	
 							))
@@ -46,7 +46,7 @@ class MainBookList extends Component {
 									<Book
 										book={book}
 										changeShelf={this.props.changeShelf}
-										currentShelf="wantToRead" //set shelf of books in the wantToRead shelf
+										currentShelf="wantToRead" //set book's shelf as 'Want to Read'
 									/>
 								</li>	
 							))
@@ -60,13 +60,13 @@ class MainBookList extends Component {
                     <ol className="books-grid">
 					{
 						this.props.books
-							.filter(book => book.shelf === 'read')//display only 'read' books here
+							.filter(book => book.shelf === 'read')//display only 'Read' books here
 							.map(book => (
 								<li key={book.id}>
 									<Book 
 										book={book}
 										changeShelf={this.props.changeShelf}
-										currentShelf="read" //set shelf of books in the  read shelf
+										currentShelf="read" //set book's shelf as 'Read'
 									/>
 								</li>	
 							))

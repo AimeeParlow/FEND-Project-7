@@ -50,8 +50,8 @@ class BookSearch extends Component {
 					let shelf = "none"
 					this.props.books.map(book => (
 						book.id === foundBook.id ? 
-						shelf = book.shelf : //if found book's id is matched book's in the main page, shelf is as it to be 
-						'' // otherwise "none"
+						shelf = book.shelf : //if found book's id is matched-book's id in the main page, shelf is as it to be 
+						'' // otherwise keep "none"
 					));
 					
 					return (
