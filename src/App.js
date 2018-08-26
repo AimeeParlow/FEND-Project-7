@@ -19,7 +19,9 @@ class App extends React.Component {
 	changeShelf = (book, shelf) => { 	// update new shelf
 		BooksAPI.update(book, shelf);
 		
-		this.componentDidMount(); 	// fetch updated books into []
+		BooksAPI.getAll().then((books) => {	// fetch updated books into [] 
+			this.setState({books: books})
+		})			
 	}
 			
 	render() {
